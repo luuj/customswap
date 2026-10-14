@@ -28,10 +28,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
-import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.menuentryswapper.MenuEntrySwapperConfig;
-import net.runelite.client.plugins.menuentryswapper.MenuEntrySwapperPlugin;
 import net.runelite.client.util.Text;
 
 
@@ -39,7 +36,6 @@ import net.runelite.client.util.Text;
 	name = "<html><font color=#b82584>[J] Custom Swaps",
 	tags = {"entry", "swapper", "custom", "text"}
 )
-@PluginDependency(MenuEntrySwapperPlugin.class)
 public class HotkeyableMenuSwapsPlugin extends Plugin
 {
 	@Inject
@@ -51,8 +47,6 @@ public class HotkeyableMenuSwapsPlugin extends Plugin
 	@Inject
 	private ConfigManager configManager;
 
-	@Inject
-	private MenuEntrySwapperConfig menuEntrySwapperConfig;
 	final List<CustomSwap> customSwaps = new ArrayList<>();
 	final List<CustomSwap> customShiftSwaps = new ArrayList<>();
 	final List<CustomSwap> customHides = new ArrayList<>();
