@@ -21,7 +21,8 @@ import net.runelite.client.util.Text;
 
 @PluginDescriptor(
 	name = "<html><font color=#b82584>[J] Custom Swaps",
-	tags = {"entry", "swapper", "custom", "text"}
+	description = "Moves or removes menu options from text-based lists, with a separate list for shift",
+	tags = {"entry", "swapper", "custom", "text", "menu", "hide"}
 )
 public class HotkeyableMenuSwapsPlugin extends Plugin
 {

@@ -8,46 +8,61 @@ import net.runelite.client.config.ConfigSection;
 @ConfigGroup("hotkeyablemenuswaps")
 public interface HotkeyableMenuSwapsConfig extends Config
 {
-	@ConfigSection(name = "Custom Swaps", description = "Text-based custom swaps", position = -10)
+	@ConfigSection(
+		name = "Swaps",
+		description = "Menu options to move to the top",
+		position = 0
+	)
 	String customSwapsSection = "Custom Swaps";
 
-	@ConfigItem(
-		keyName = "customSwaps",
-		name = "Custom swaps",
-		description = "Options to swap to the top.",
-		section = customSwapsSection,
-		position = 0
+	@ConfigSection(
+		name = "Shift swaps",
+		description = "Menu options to move to the top while shift is held",
+		position = 1
 	)
-	default String customSwaps() {
-		return "";
-	}
-
-	@ConfigSection(name = "Custom Swaps (shift)", description = "Text-based custom swaps", position = -10)
 	String customShiftSwapsSection = "Custom Swaps (shift)";
 
-	@ConfigItem(
-		keyName = "customShiftSwaps",
-		name = "Custom swaps (shift)",
-		description = "Options to swap to the top when shift is held.",
-		section = customShiftSwapsSection,
-		position = 0
+	@ConfigSection(
+		name = "Hides",
+		description = "Menu options to remove",
+		position = 2
 	)
-	default String customShiftSwaps() {
-		return "";
-	}
-
-	@ConfigSection(name = "Custom Hides", description = "Text-based custom menu entry hides", position = -9)
 	String customHidesSection = "Custom Hides";
 
 	@ConfigItem(
-		keyName = "customHides",
-		name = "Custom hides",
-		description = "Options to swap to the top.",
-		section = customHidesSection,
-		position = 1
+		keyName = "customSwaps",
+		name = "Swap list",
+		description = "One entry per line: option, target, then optionally the top option and target it should replace. "
+			+ "Use * as a wildcard. Example: wield, dragon dagger",
+		position = 0,
+		section = customSwapsSection
 	)
-	default String customHides() {
+	default String customSwaps()
+	{
 		return "";
 	}
 
+	@ConfigItem(
+		keyName = "customShiftSwaps",
+		name = "Shift swap list",
+		description = "Same format as the swap list; only used while shift is held",
+		position = 0,
+		section = customShiftSwapsSection
+	)
+	default String customShiftSwaps()
+	{
+		return "";
+	}
+
+	@ConfigItem(
+		keyName = "customHides",
+		name = "Hide list",
+		description = "One entry per line: option, target. Matching menu options are removed. Use * as a wildcard. Example: walk here, *",
+		position = 0,
+		section = customHidesSection
+	)
+	default String customHides()
+	{
+		return "";
+	}
 }
